@@ -9,3 +9,5 @@ Replaces psycasts from Royalty with PsiTech's implementation of psionics, while 
   
  PsiTech pretty pictures by Emma Caraway licensed and modified under CC BY-NC-SA 3.0 (https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode).
  
+ royaltypsitechmerger itself is licensed under the same licenses for similar types of assets.
+ 
