@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <!-- Remove stray mentions of Royalty psycasting concepts -->
+	<RoyalWithTraitAffectingPsylinkNegatively>Since {PAWN_labelShort} is {2}, psychic training might not be useful for {PAWN_objective}.</RoyalWithTraitAffectingPsylinkNegatively>
+  
+  <RoyalFavorTip>You can choose one of your {0} to receive {1} {2} from {3_name}.\n\nBy receiving {2}, you gain titles. Titles bring psychic training and special permits like military aid. However, {0} with higher titles will also need specific apparel and bedroom furnishings.</RoyalFavorTip>
+  
+  <Reward_BestowingCeremony_Label>New psychic ability</Reward_BestowingCeremony_Label>
+  
+  <Reward_BestowingCeremony>{PAWNNAME} gains a psychic ability and a psychic node</Reward_BestowingCeremony>  
+</LanguageData>

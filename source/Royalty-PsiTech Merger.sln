@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Royalty-PsiTech Merger", "Royalty-PsiTech Merger.csproj", "{25B2E71A-488E-45B5-88CB-3258BF1DCBE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsiTech", "..\..\..\Mods sources\PsiTech\Source\PsiTech.csproj", "{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug - 1.1|Any CPU = Debug - 1.1|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release - 1.1|Any CPU = Release - 1.1|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25B2E71A-488E-45B5-88CB-3258BF1DCBE3}.Debug - 1.1|Any CPU.ActiveCfg = Debug|Any CPU
+		{25B2E71A-488E-45B5-88CB-3258BF1DCBE3}.Debug - 1.1|Any CPU.Build.0 = Debug|Any CPU
+		{25B2E71A-488E-45B5-88CB-3258BF1DCBE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25B2E71A-488E-45B5-88CB-3258BF1DCBE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25B2E71A-488E-45B5-88CB-3258BF1DCBE3}.Release - 1.1|Any CPU.ActiveCfg = Release|Any CPU
+		{25B2E71A-488E-45B5-88CB-3258BF1DCBE3}.Release - 1.1|Any CPU.Build.0 = Release|Any CPU
+		{25B2E71A-488E-45B5-88CB-3258BF1DCBE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25B2E71A-488E-45B5-88CB-3258BF1DCBE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}.Debug - 1.1|Any CPU.ActiveCfg = Debug - 1.1|Any CPU
+		{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}.Debug - 1.1|Any CPU.Build.0 = Debug - 1.1|Any CPU
+		{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}.Release - 1.1|Any CPU.ActiveCfg = Release - 1.1|Any CPU
+		{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}.Release - 1.1|Any CPU.Build.0 = Release - 1.1|Any CPU
+		{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8894ED57-23A0-4E2B-AA59-1CDB8D38357A}
+	EndGlobalSection
+EndGlobal

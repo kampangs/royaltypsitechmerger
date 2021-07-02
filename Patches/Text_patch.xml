@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- Series of cosmetic patches to remove all mentions of "psylink", "psycast", "psyfocus", "neural heat", "psychic entropy". These keywords should be reserved to refer to vanilla Royalty mechanics. -->
+  
+  <!-- Deserter quest -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/QuestScriptDef[defName="Intro_Deserter"]/questDescriptionRules/rulesStrings/li</xpath>
+    <value>
+      <li>questDescription->[asker_nameFull], [asker_titleIndef], is calling from nearby. [asker_pronoun] has deserted the army of [asker_factionName] and is being hunted by (*Threat)a loyalty squad(/Threat). [asker_pronoun] wishes to join you at [map_definite].
+\n[asker_nameDef] knows the location of a key outpost containing artifacts that can be reverse-engineered to develop psychic powers:\n\n[sitePart1_itemStashContents]
+\nBeware - If you accept [asker_nameDef], you will become an enemy of [asker_factionName]! The pursuing loyalty squad will attack immediately. It is composed of: \n\n[raid/raidPawnKinds]
+\nOnly accept if you wish to fight against [asker_factionName] and develop your psions on your own. You will have one year to attack the outpost before it is moved.</li>
+    </value>
+  </Operation>
+  
+  <!-- Acolyte title -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/RoyalTitleDef[defName="Esquire"]/description</xpath>
+    <value>
+      <description>The title of acolyte is the first title of noble duty, an encompasses a wide range of practical positions. Some acolytes are purely students, learning to lead troops, manage societies, or use psionics in specialized schools. Others come from wealthy families and might own city buildings or farm complexes.\n\nDuring wartime, an acolyte might lead a platoon of troops, captain a small frigate, or serve their lord as an advisor.\n\nTheir low rank within the nobility makes them paradoxically less useful as diplomats than yeomen. Sending a low-ranked acolyte to a negotiation can itself be seen as an insult, whereas a non-noble yeoman negotiator is seen only as the mouthpiece of his lord.</description>
+    </value>
+  </Operation>
+  
+  <!-- Meditation buildings -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Throne"]/description</xpath>
+    <value>
+      <description>A large, ornate chair designed for a dignified noble of common rank to sit, reign, and meditate. The opulence of a noble's throneroom is an important status symbol.</description>
+    </value>
+  </Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="GrandThrone"]/description</xpath>
+    <value>
+      <description>A massive, ornate chair, designed for a dignified noble to sit, reign, and meditate. Esteemed nobles demand particularly grand and ostentatious thrones, befitting their stature, to distinguish them from the lower nobility.</description>
+    </value>
+  </Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="MeditationSpot"]/description</xpath>
+    <value>
+      <description>Designates a spot for meditation. People meditate for relaxation or entertainment.</description>
+    </value>
+  </Operation>
+  
+  <!-- Drugs: Wake-up, Go-Juice (previously mentioned psyfocus) -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="WakeUp"]/description</xpath>
+    <value>
+      <description>A synthetic stimulant. Wake-up fills the user's need for rest, allowing them to work for extended periods without getting tired. However, taking wake-up runs the risk of developing an addiction.\n\nIn the most competitive universities and companies of many worlds, high-achievers are sometimes called 'wake-ups' because of the association with this drug.</description>
+    </value>
+  </Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="GoJuice"]/description</xpath>
+    <value>
+      <description>A synthetic performance-enhancing drug developed for space marines during the early days of interplanetary warfare. Go-juice blocks pain, increases movement speed, and improves the user's melee and shooting abilities.\n\nThe military chemists who created it were never able to remove its addictiveness. Some saw this as a downside; others saw it as a benefit.</description>
+    </value>
+  </Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/HediffDef[defName="GoJuiceHigh"]/description</xpath>
+    <value>
+      <description>Go-juice in the bloodstream. It supercharges combat-related abilities.</description>
+    </value>
+  </Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/HediffDef[defName="WakeUpHigh"]/description</xpath>
+    <value>
+      <description>Wake-up in the bloodstream. It fills the need for rest by stimulating the brain, and increases focus, allowing faster work.</description>
+    </value>
+  </Operation>
+  
+  <!-- Psychic shock lance effect -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/HediffDef[defName="PsychicShock"]/description</xpath>
+    <value>
+      <description>A state of psychic chaos in the brain and mind. Caused by psychic attacks, this effect is debilitating until it wears off.</description>
+    </value>
+  </Operation>
+  
+  <!-- Psychic sensitivity stat -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/StatDef[defName="PsychicSensitivity"]/description</xpath>
+    <value>
+      <description>More sensitive people suffer more from negative psychic effects, and benefit more from positive ones. Higher psychic sensitivity also improves the strength and reliability of a psion's psychic abilities.</description>
+    </value>
+  </Operation>
+  
+  <!-- Remove neural heat from apparel descriptions -->
+</Patch>  

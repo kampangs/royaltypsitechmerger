@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- Remove stray mentions of Royalty psycasting concepts -->
+  <RoyaltyTips.FreePsychicAmplifier>The Empire bestows a free psychic ability for every noble title earned.</RoyaltyTips.FreePsychicAmplifier>
+  
+  <RoyaltyTips.IllegalImplantUse>Psychic neuroformers can be acquired through quests.</RoyaltyTips.IllegalImplantUse>
+  
+  <RoyaltyTips.PsycastAdvantage>Psychic powers can give you significant advantage in combat.</RoyaltyTips.PsycastAdvantage>
+  
+  <RoyaltyTips.EltexGear>Dressing your psions in eltex gear will improve the strength and reliability of their psychic abilities.</RoyaltyTips.EltexGear>
+</LanguageData>
