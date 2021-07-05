@@ -28,7 +28,7 @@ namespace Royalty_PsiTech_Merger
         }
     }
 
-    [HarmonyPatch(typeof(NeurotrainerDefGenerator), "ImpliedThingDefs")]
+    [HarmonyPatch(typeof(ThingDefGenerator_Neurotrainer), "ImpliedThingDefs")]
     class NoPsitrainersFromTradersOrQuestRewardsPatch
     {
         static IEnumerable<ThingDef> Postfix(IEnumerable<ThingDef> __result)
