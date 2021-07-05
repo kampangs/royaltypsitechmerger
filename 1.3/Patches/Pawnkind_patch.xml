@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- Empire Pawns with psi: all nobles other than freeholder, stellic guards, noble wimp from intro quest -->
+  <Operation Class="PatchOperationAttributeSet">
+    <xpath>/Defs/PawnKindDef[defName="Empire_Fighter_StellicGuardRanged" or defName="Empire_Fighter_StellicGuardMelee" or defName="Empire_Royal_NobleWimp" or defName="Empire_Royal_Yeoman" or defName="Empire_Royal_Acolyte" or defName="Empire_Royal_Knight" or defName="Empire_Royal_Praetor" or defName="Empire_Royal_Baron" or defName="Empire_Royal_Count" or defName="Empire_Royal_Duke" or defName="Empire_Royal_Consul" or defName="Empire_Royal_Stellarch"]</xpath>
+    <attribute>Class</attribute>
+    <value>PsiTech.Misc.PsiTechPawnKindDef</value>
+  </Operation>
+  
+  <!-- Ranged Stellic guard: 2x shooting-relevant t1 passives -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PawnKindDef[defName="Empire_Fighter_StellicGuardRanged"]</xpath>
+    <value>
+      <FocusRange>1~1</FocusRange>
+      <TotalLevelRange>2~2</TotalLevelRange>
+      <PsiAbilitiesMoney>35~50</PsiAbilitiesMoney>
+      <AbilityPool>
+        <li>PTAlacrity</li>
+        <li>PTTruesight</li>
+        <li>PTCombatPrecision</li>
+        <li>PTCombatIntuition</li>
+      </AbilityPool>
+    </value>
+  </Operation>
+  
+  <!-- Melee Stellic guard: 2x melee-relevant t1 passives -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PawnKindDef[defName="Empire_Fighter_StellicGuardMelee"]</xpath>
+    <value>
+      <FocusRange>1~1</FocusRange>
+      <TotalLevelRange>2~2</TotalLevelRange>
+      <PsiAbilitiesMoney>35~50</PsiAbilitiesMoney>
+      <AbilityPool>
+        <li>PTAlacrity</li>
+        <li>PTPrecision</li>
+        <li>PTTruesight</li>
+        <li>PTCombatPrecognition</li>
+        <li>PTCombatInsight</li>
+      </AbilityPool>
+    </value>
+  </Operation>
+  
+  <!-- Yeoman: Immediately useful passives; no psi boosters -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PawnKindDef[defName="Empire_Royal_Yeoman"]</xpath>
+    <value>
+      <FocusRange>1~1</FocusRange>
+      <TotalLevelRange>2~2</TotalLevelRange>
+      <PsiAbilitiesMoney>15~50</PsiAbilitiesMoney>
+      <AbilityPool>
+        <li>PTAlacrity</li>
+        <li>PTPrecision</li>
+        <li>PTTruesight</li>
+        <li>PTCombatPrecognition</li>
+        <li>PTCombatInsight</li>
+        <li>PTPsiTrance</li>
+        <li>PTInsulation</li>
+        <li>PTSerenity</li>
+        <li>PTPsiForging</li>
+        <li>PTEmpatheticNegotiation</li>
+        <li>PTEmpatheticBargaining</li>
+        <li>PTEmpatheticHandling</li>
+        <li>PTPurity</li>
+      </AbilityPool>
+    </value>
+  </Operation>
+  
+  <!-- Acolyte: Useless abilities for preparation; no diplomacy -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PawnKindDef[defName="Empire_Royal_Acolyte"]</xpath>
+    <value>
+      <FocusRange>1~2</FocusRange>
+      <TotalLevelRange>3~3</TotalLevelRange>
+      <PsiAbilitiesMoney>25~75</PsiAbilitiesMoney>
+      <AbilityPool>
+        <li>PTAlacrity</li>
+        <li>PTPrecision</li>
+        <li>PTTruesight</li>
+        <li>PTCombatPrecognition</li>
+        <li>PTCombatInsight</li>
+        <li>PTPsiDefence</li>
+        <li>PTPsiAttunement</li>
+        <li>PTPsiFocus</li>
+        <li>PTPsiCapacitance</li>
+        <li>PTPsiTrance</li>
+        <li>PTPurity</li>
+      </AbilityPool>
+    </value>
+  </Operation>
+  
+  <!-- Knight: Weaker tier 2 abilities unlocked, diplomacy re-enabled -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PawnKindDef[defName="Empire_Royal_Knight"]</xpath>
+    <value>
+      <FocusRange>1~3</FocusRange>
+      <TotalLevelRange>4~4</TotalLevelRange>
+      <PsiAbilitiesMoney>75~199</PsiAbilitiesMoney>
+      <AbilityPool>
+        <li>PTAlacrity</li>
+        <li>PTPrecision</li>
+        <li>PTTruesight</li>
+        <li>PTCombatPrecognition</li>
+        <li>PTCombatInsight</li>
+        <li>PTPsiDefence</li>
+        <li>PTPsiAttunement</li>
+        <li>PTPsiFocus</li>
+        <li>PTPsiCapacitance</li>
+        <li>PTEmpatheticNegotiation</li>
+        <li>PTEmpatheticBargaining</li>
+        <li>PTEmpatheticHandling</li>
+        <li>PTPsiTrance</li>
+        <li>PTPurity</li>
+        <li>PTMindfray</li>
+        <li>PTPsiHeal</li>
+        <li>PTInspire</li>
+        <li>PTMindsoothe</li>
+        <li>PTBattlefieldPrecognition</li>
+        <li>PTBattlefieldPrecision</li>
+      </AbilityPool>
+    </value>
+  </Operation>
+  
+  <!-- Praetor: Most of tier 2 abilities unlocked -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PawnKindDef[defName="Empire_Royal_Praetor"]</xpath>
+    <value>
+      <FocusRange>2~3</FocusRange>
+      <TotalLevelRange>5~5</TotalLevelRange>
+      <PsiAbilitiesMoney>300~600</PsiAbilitiesMoney>
+      <AbilityPool>
+        <li>PTAlacrity</li>
+        <li>PTPrecision</li>
+        <li>PTTruesight</li>
+        <li>PTCombatPrecognition</li>
+        <li>PTCombatInsight</li>
+        <li>PTPsiDefence</li>
+        <li>PTPsiAttunement</li>
+        <li>PTPsiFocus</li>
+        <li>PTPsiCapacitance</li>
+        <li>PTPerfectedDefence</li>
+        <li>PTPerfectedAttunement</li>
+        <li>PTPerfectedFocus</li>
+        <li>PTPerfectedCapacitance</li>
+        <li>PTEmpatheticNegotiation</li>
+        <li>PTEmpatheticBargaining</li>
+        <li>PTEmpatheticHandling</li>
+        <li>PTPsiTrance</li>
+        <li>PTPurity</li>
+        <li>PTMindfray</li>
+        <li>PTPsiHeal</li>
+        <li>PTInspire</li>
+        <li>PTMindsoothe</li>
+        <li>PTBattlefieldPrecognition</li>
+        <li>PTBattlefieldPrecision</li>
+        <li>PTInsanity</li>
+        <li>PTMindmelt</li>
+        <li>PTMindlash</li>
+      </AbilityPool>
+    </value>
+  </Operation>
+  
+  <!-- Baron: Weaker tier 3 unlocked -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PawnKindDef[defName="Empire_Royal_Baron"]</xpath>
+    <value>
+      <FocusRange>3~3</FocusRange>
+      <TotalLevelRange>6~6</TotalLevelRange>
+      <PsiAbilitiesMoney>550~900</PsiAbilitiesMoney>
+      <AbilityPool>
+        <li>PTAlacrity</li>
+        <li>PTPrecision</li>
+        <li>PTTruesight</li>
+        <li>PTCombatPrecognition</li>
+        <li>PTCombatInsight</li>
+        <li>PTPsiDefence</li>
+        <li>PTPsiAttunement</li>
+        <li>PTPsiFocus</li>
+        <li>PTPsiCapacitance</li>
+        <li>PTEmpatheticNegotiation</li>
+        <li>PTEmpatheticBargaining</li>
+        <li>PTEmpatheticHandling</li>
+        <li>PTPsiTrance</li>
+        <li>PTPurity</li>
+        <li>PTMindfray</li>
+        <li>PTPsiHeal</li>
+        <li>PTInspire</li>
+        <li>PTMindsoothe</li>
+        <li>PTBattlefieldPrecognition</li>
+        <li>PTBattlefieldPrecision</li>
+        <li>PTInsanity</li>
+        <li>PTMindmelt</li>
+        <li>PTMindlash</li>
+        <li>PTPhoenix</li>
+        <li>PTTranscendentDefense</li>
+      </AbilityPool>
+    </value>
+  </Operation>
+  
+  <!-- Count+: Anything -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PawnKindDef[defName="Empire_Royal_Count" or defName="Empire_Royal_Duke" or defName="Empire_Royal_Consul" or defName="Empire_Royal_Stellarch"]</xpath>
+    <value>
+      <FocusRange>3~3</FocusRange>
+      <TotalLevelRange>6~6</TotalLevelRange>
+      <PsiAbilitiesMoney>2000~2500</PsiAbilitiesMoney>
+      <AbilityPool>
+        <li>PTAlacrity</li>
+        <li>PTPrecision</li>
+        <li>PTTruesight</li>
+        <li>PTCombatPrecognition</li>
+        <li>PTCombatInsight</li>
+        <li>PTPsiDefence</li>
+        <li>PTPsiAttunement</li>
+        <li>PTPsiFocus</li>
+        <li>PTPsiCapacitance</li>
+        <li>PTEmpatheticNegotiation</li>
+        <li>PTEmpatheticBargaining</li>
+        <li>PTEmpatheticHandling</li>
+        <li>PTPsiTrance</li>
+        <li>PTPurity</li>
+        <li>PTMindfray</li>
+        <li>PTPsiHeal</li>
+        <li>PTInspire</li>
+        <li>PTMindsoothe</li>
+        <li>PTBattlefieldPrecognition</li>
+        <li>PTBattlefieldPrecision</li>
+        <li>PTInsanity</li>
+        <li>PTMindmelt</li>
+        <li>PTMindlash</li>
+        <li>PTPhoenix</li>
+        <li>PTTranscendentDefense</li>
+        <li>PTPsiRally</li>
+        <li>PTPsiStorm</li>
+      </AbilityPool>
+    </value>
+  </Operation>
+  
+  <!-- Noble Wimp: Great nodes, non-combat or useless abilities -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/PawnKindDef[defName="Empire_Royal_NobleWimp"]</xpath>
+    <value>
+      <FocusRange>2~3</FocusRange>
+      <TotalLevelRange>5~6</TotalLevelRange>
+      <PsiAbilitiesMoney>250~350</PsiAbilitiesMoney>
+      <AbilityPool>
+        <li>PTPsiTrance</li>
+        <li>PTInsulation</li>
+        <li>PTEmpatheticNegotiation</li>
+        <li>PTEmpatheticBargaining</li>
+        <li>PTEmpatheticHandling</li>
+        <li>PTPsiAttunement</li>
+        <li>PTPsiFocus</li>
+        <li>PTPsiCapacitance</li>
+        <li>PTPerfectedAttunement</li>
+        <li>PTPerfectedFocus</li>
+        <li>PTPerfectedCapacitance</li>
+        <li>PTConversion</li>
+        <li>PTPurity</li>
+        <li>PTTruesight</li>
+        <li>PTPrecision</li>
+        <li>PTInfluence</li>
+        <li>PTInsight</li>
+        <li>PTPsiHeal</li>
+        <li>PTInspire</li>
+        <li>PTMindsoothe</li>
+      </AbilityPool>
+    </value>
+  </Operation>
+</Patch>

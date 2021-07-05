@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- Remove psylink from all Empire titles -->
+	<Operation Class="PatchOperationRemove">
+	  <xpath>/Defs/RoyalTitleDef[defName="Yeoman" or defName="Acolyte" or defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count" or @Name="BaseEmpireTitleNPC"]/maxPsylinkLevel</xpath>
+	</Operation>
+  
+  <!-- Remove bestower ceremony from all Empire titles -->
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/RoyalTitleDef[defName="Yeoman" or defName="Acolyte" or defName="Knight" or defName="Praetor" or defName="Baron" or defName="Count"]</xpath>
+    <value>
+      <awardWorkerClass>RoyalTitleAwardWorker_Instant</awardWorkerClass>
+    </value>
+	</Operation>
+  
+  <!-- Remove psylink ritual from anima tree -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Plant_TreeAnima"]/description</xpath>
+    <value>
+      <description>A rare tree with warm, skin-smooth bark and long iridescent leaves. Infused with bioluminescent micro-organisms, anima trees develop a unique form of psychic symbiosis with surrounding lifeforms, allowing them to grow in a wide variety of biomes.</description>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+	  <xpath>/Defs/ThingDef[defName="Plant_TreeAnima"]/comps/li[@Class="CompProperties_Psylinkable" or @Class="CompProperties_SpawnSubplant"]</xpath>
+	</Operation>
+  
+  <!-- Remove animus stone from traders and quests -->
+	<Operation Class="PatchOperationRemove">
+	  <xpath>/Defs/TraderKindDef[defName="Base_Neolithic_Standard"]/stockGenerators/li[thingDef="AnimusStone"]</xpath>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+	  <xpath>/Defs/ThingSetMakerDef[defName="Reward_ItemsStandard"]/root/options/li[maxMarketValue=5500]/thingSetMaker/options/li[./thingSetMaker/thingSetMaker/fixedParams/filter/thingDefs[li="AnimusStone"]]</xpath>
+	</Operation>
+  
+  <!-- Make nature shrines unbuildable -->
+	<Operation Class="PatchOperationRemove">
+	  <xpath>/Defs/ThingDef[@Name="NatureShrineBase"]/designationCategory</xpath>
+	</Operation>
+  
+  <!-- Hide stats related to psyfocus meditation -->
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/StatDef[defName="MeditationFocusStrength" or defName="MeditationFocusGain"]</xpath>
+    <value>
+      <alwaysHide>true</alwaysHide>
+    </value>
+	</Operation>
+  
+  <!-- Remove psycasting-specific persona weapon traits -->
+	<Operation Class="PatchOperationRemove">
+	  <xpath>/Defs/WeaponTraitDef[defName="OnKill_PsyfocusGain" or defName="NeuralHeatRecoveryGain" or defName="PsyfocusMeditationBonus"]</xpath>
+	</Operation>
+  
+  <!-- Remove neural heat recovery from Royalty apparel -->
+	<Operation Class="PatchOperationRemove">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusHelmet" or defName="Apparel_EltexSkullcap" or defName="Apparel_PsyfocusShirt" or defName="Apparel_PsyfocusVest" or defName="Apparel_PsyfocusRobe" or defName="Apparel_ArmorReconPrestige" or defName="Apparel_ArmorHelmetReconPrestige" or defName="Apparel_ArmorMarinePrestige" or defName="Apparel_ArmorMarineHelmetPrestige" or defName="Apparel_ArmorCataphractPrestige" or defName="Apparel_ArmorHelmetCataphractPrestige" or defName="MeleeWeapon_PsyfocusStaff"]/equippedStatOffsets/PsychicEntropyRecoveryRate</xpath>
+	</Operation>
+  
+  <!-- Add techprint requirement to key PsiTech research topics -->
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ResearchProjectDef[defName="PTPsionics" or defName="PTProjectionTheory"]</xpath>
+    <value>
+      <techprintCount>1</techprintCount>
+      <techprintCommonality>1</techprintCommonality>
+      <techprintMarketValue>2000</techprintMarketValue>
+      <heldByFactionCategoryTags>
+        <li>Empire</li>
+      </heldByFactionCategoryTags>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/ResearchProjectDef[defName="PTPsiTranscendence" or defName="PTPsychicWeapons" or defName="PTArtifactCreation" or defName="PTAdvancedPsychicEquipment"]</xpath>
+    <value>
+      <techprintCount>1</techprintCount>
+      <techprintCommonality>1</techprintCommonality>
+      <techprintMarketValue>3000</techprintMarketValue>
+      <heldByFactionCategoryTags>
+        <li>Empire</li>
+      </heldByFactionCategoryTags>
+    </value>
+	</Operation>
+  
+  <!-- Make specific Empire titles yield psionic techprints -->
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/RoyalTitleDef[defName="Acolyte"]</xpath>
+    <value>
+      <rewards>
+        <Techprint_PTPsionics>1</Techprint_PTPsionics>
+      </rewards>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/RoyalTitleDef[defName="Knight"]</xpath>
+    <value>
+      <rewards>
+        <Techprint_PTProjectionTheory>1</Techprint_PTProjectionTheory>
+      </rewards>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/RoyalTitleDef[defName="Baron"]</xpath>
+    <value>
+      <rewards>
+        <Techprint_PTPsiTranscendence>1</Techprint_PTPsiTranscendence>
+      </rewards>
+    </value>
+	</Operation>
+  
+  <!-- Change Deserter quest to yield PsiTech-related rewards -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/QuestScriptDef[defName="Intro_Deserter"]/root/nodes/li[@Class="QuestNode_SetItemStashContents"]/items</xpath>
+    <value>
+      <items>
+        <li>Apparel_PsychicShockLance</li>
+        <li>Apparel_PsychicInsanityLance</li>
+        <li>PsychicAnimalPulser</li>
+        <li>PsychicSoothePulser</li>
+        <li>Techprint_PTPsionics</li>
+        <li>Techprint_PTProjectionTheory</li>
+      </items>
+    </value>
+	</Operation>
+  
+
+<!-- Rebalance area -->
+
+  
+  <!-- Disallow psychic bladelink weapons because they're OP
+       todo: figure out a less hamfisted solution -->
+	<Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/RecipeDef[defName="PTUpgradeWeaponPsychic"]/fixedIngredientFilter/disallowedCategories</xpath>
+    <value>
+      <li>WeaponsMeleeBladelink</li>
+    </value>
+	</Operation>
+  
+  <!-- Improve Eltex Helmet, a very weak vanilla item -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusHelmet"]/statBases/ArmorRating_Sharp</xpath>
+    <value>
+      <ArmorRating_Sharp>0.60</ArmorRating_Sharp>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusHelmet"]/statBases/ArmorRating_Blunt</xpath>
+    <value>
+      <ArmorRating_Blunt>0.30</ArmorRating_Blunt>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusHelmet"]/statBases/ArmorRating_Heat</xpath>
+    <value>
+      <ArmorRating_Heat>0.45</ArmorRating_Heat>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusHelmet"]/label</xpath>
+    <value>
+      <label>athenium helmet</label>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusHelmet"]/description</xpath>
+    <value>
+      <description>A lightweight helmet designed for psychic attunement and protection. Athenium strands are woven through the armor to enhance the wearer's psychic sensitivity.</description>
+    </value>
+	</Operation>
+  
+  <!-- Redescribe eltex skullcap -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_EltexSkullcap"]/label</xpath>
+    <value>
+      <label>athenium skullcap</label>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_EltexSkullcap"]/description</xpath>
+    <value>
+      <description>A tight skullcap designed for psychic attunement. It provides no physical protection, but its special materials greatly enhance the wearer's psychic sensitivity.</description>
+    </value>
+	</Operation>
+  
+  <!-- Redescribe eltex shirt -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusShirt"]/label</xpath>
+    <value>
+      <label>athenium shirt</label>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusShirt"]/description</xpath>
+    <value>
+      <description>A shirt designed to enhance psychic sensitivity by incorporating a pattern of woven athenium.</description>
+    </value>
+	</Operation>
+  
+  <!-- Redescribe eltex vest -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusVest"]/label</xpath>
+    <value>
+      <label>athenium vest</label>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusVest"]/description</xpath>
+    <value>
+      <description>A thin vest primarily meant to carry a pattern of woven athenium. It enhances the wearer's psychic attunement.</description>
+    </value>
+	</Operation>
+  
+  <!-- Improve & redescribe eltex robe -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusRobe"]/label</xpath>
+    <value>
+      <label>athenium robe</label>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusRobe"]/description</xpath>
+    <value>
+      <description>A long robe interwoven with psychic athenium fibers. The material enhances psychic sensitivity.</description>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_PsyfocusRobe"]/equippedStatOffsets/PsychicSensitivityOffset</xpath>
+    <value>
+      <PsychicSensitivityOffset>0.40</PsychicSensitivityOffset>
+    </value>
+	</Operation>
+  
+  <!-- Remove mentions of eltex from prestige armors -->
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_ArmorReconPrestige"]/description</xpath>
+    <value>
+      <description>A suit of light partially-powered armor, designed to permit quick movement. Plasteel-weave plates block attacks without compromising mobility, and neuro-memetic assistors in the lower body allow a human to wear the armor and still move easily.\n\nExpensive and beautiful, prestige armor like this is usually made for those of high status. Embedded athenium threads also enhance the wearer's psychic sensitivity.</description>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_ArmorHelmetReconPrestige"]/description</xpath>
+    <value>
+      <description>A high-tech armored helmet with a built-in status computer and a protective plasteel-weave plate.\n\nExpensive and beautiful, prestige armor like this is usually made for those of high status. Embedded athenium threads also enhance the wearer's psychic sensitivity.</description>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_ArmorMarinePrestige"]/description</xpath>
+    <value>
+      <description>A suit of powered armor. Layered plasteel-weave plates are very effective at stopping attacks, with few vulnerable joint sections. Neuro-memetic assistors allow a human to wear the armor and still move easily.\n\nExpensive and beautiful, prestige armor like this is usually made for those of high status. Embedded athenium threads also enhance the wearer's psychic sensitivity.</description>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_ArmorMarineHelmetPrestige"]/description</xpath>
+    <value>
+      <description>A marine armor helmet, with a built-in status computer and layered plasteel-weave plates.\n\nExpensive and beautiful, prestige armor like this is usually made for those of high status. Embedded athenium threads also enhance the wearer's psychic sensitivity.</description>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_ArmorCataphractPrestige"]/description</xpath>
+    <value>
+      <description>A suit of heavy powered armor, built for maximum protection at the cost of mobility. Heavy layered plasteel-weave plates with solid ablative coatings stop all but the most well-aimed or powerful attacks. Neuro-memetic assistors prevent the suit's massive weight from immobilizing the wearer entirely, but the suit is still quite cumbersome.\n\nExpensive and beautiful, prestige armor like this is usually made for those of high status. Embedded athenium threads also enhance the wearer's psychic sensitivity.</description>
+    </value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+	  <xpath>/Defs/ThingDef[defName="Apparel_ArmorHelmetCataphractPrestige"]/description</xpath>
+    <value>
+      <description>A heavily-armored high-tech helmet, with a solid plasteel-weave shell and indirect visual system for non-frontal view angles. It protects against all but the most powerful or luckily-aimed shots.\n\nExpensive and beautiful, prestige armor like this is usually made for those of high status. Embedded athenium threads also enhance the wearer's psychic sensitivity.</description>
+    </value>
+	</Operation>
+  
+  
+</Patch>
